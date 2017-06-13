@@ -12,10 +12,10 @@ class Cgminer < Formula
     depends_on 'pkg-config' => :build
     depends_on 'coreutils' => :build
     depends_on 'curl'
+    depends_on 'jansson'
+    depends_on 'libusb'
 
     def install
-        inreplace "autogen.sh", "readlink", "greadlink"
-        system "autoreconf -fvi" 
         system "./autogen.sh", "--disable-debug", "--disable-dependency-tracking",
         "--prefix=#{prefix}",
         "PKG_CONFIG_PATH=#{HOMEBREW_PREFIX}/opt/curl/lib/pkgconfig:#{HOMEBREW_PREFIX}/opt/jansson/lib/pkgconfig:#{HOMEBREW_PREFIX}/opt/libusb/lib/pkgconfig",
