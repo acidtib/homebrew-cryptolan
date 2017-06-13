@@ -14,7 +14,6 @@ class Cgminer < Formula
     depends_on 'curl'
 
     def install
-        inreplace "autogen.sh", "libtoolize", "glibtoolize" 
         inreplace "autogen.sh", "readlink", "greadlink"
         system "autoreconf -fvi" 
         system "./autogen.sh", "--disable-debug", "--disable-dependency-tracking",
